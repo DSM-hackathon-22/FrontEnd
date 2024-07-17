@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Header from "../components/HeaderBefore";
 import { BoxCheck } from "../components/BoxCheck";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import IT from "../assets/IT.svg";
 import Finance from "../assets/Finance.svg";
 import Healthcare from "../assets/Healthcare.svg";
@@ -16,10 +18,18 @@ import Material from "../assets/Material.svg";
 import { CheckHeader } from "../components/CheckHeader";
 
 function Main() {
-  const [selectedBoxIndex, setSelectedBoxIndex] = useState(null);
+  const [selectedBoxIndex, setSelectedBoxIndex] = useState({
+    id: -1,
+    name: "",
+  });
+  const navigate = useNavigate();
 
   const handleClick = (index) => {
     setSelectedBoxIndex(selectedBoxIndex === index ? null : index);
+  };
+
+  const Selected = () => {
+    navigate(`/graph/${selectedBoxIndex.name}`);
   };
 
   const boxes = [
@@ -52,8 +62,8 @@ function Main() {
                   key={index}
                   name={box.name}
                   image={box.image}
-                  click={selectedBoxIndex === index}
-                  onClick={() => handleClick(index)}
+                  click={selectedBoxIndex.id === index}
+                  onClick={() => handleClick({ id: index, name: box.name })}
                 />
               ))}
             </Box>
@@ -63,13 +73,13 @@ function Main() {
                   key={index + 6}
                   name={box.name}
                   image={box.image}
-                  click={selectedBoxIndex === index + 6}
-                  onClick={() => handleClick(index + 6)}
+                  click={selectedBoxIndex.id === index + 6}
+                  onClick={() => handleClick({ id: index + 6, name: box.name })}
                 />
               ))}
             </Box>
           </BigBox>
-          <Button>선택 완료</Button>
+          <Button onClick={Selected}>선택 완료</Button>
         </ButtonBox>
       </Wrapper>
     </>

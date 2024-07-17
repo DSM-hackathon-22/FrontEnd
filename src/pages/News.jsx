@@ -3,6 +3,11 @@ import Header from "../components/HeaderBefore";
 import { CheckHeader } from "../components/CheckHeader";
 
 function News() {
+  const navigate = useNavigate();
+  const GoGraph = () => {
+    navigate("/graph");
+  };
+
   return (
     <>
       <CheckHeader />
@@ -75,7 +80,7 @@ function News() {
               </NewsBox>
             </Section>
           </Content>
-          <GraphButton>그래프</GraphButton>
+          <GraphButton onClick={GoGraph}>그래프</GraphButton>
         </Container>
       </AllBox>
     </>
