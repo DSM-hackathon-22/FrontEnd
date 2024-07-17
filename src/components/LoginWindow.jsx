@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import "../fonts/font.css";
 import { useState } from "react";
-import OpenEye from "../assets/OpenEye.svg";
-import CloseEye from "../assets/CloseEye.svg";
 import Password from "./Password";
 import { Login } from "../Apis/Login";
 import { setCookie } from "../Utils/cookies";

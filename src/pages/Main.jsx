@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Header from "../components/HeaderBefore";
 import { BoxCheck } from "../components/BoxCheck";
 import { useState } from "react";
-
 import IT from "../assets/IT.svg";
 import Finance from "../assets/Finance.svg";
 import Healthcare from "../assets/Healthcare.svg";
@@ -14,6 +13,7 @@ import Energy from "../assets/Energy.svg";
 import Utilities from "../assets/Utilities.svg";
 import RealEstateMaterials from "../assets/RealEstateMaterials.svg";
 import Material from "../assets/Material.svg";
+import { CheckHeader } from "../components/CheckHeader";
 
 function Main() {
   const [selectedBoxIndex, setSelectedBoxIndex] = useState(null);
@@ -38,7 +38,7 @@ function Main() {
 
   return (
     <>
-      <Header />
+      <CheckHeader/>
       <Wrapper>
         <ButtonBox>
           <BigBox>

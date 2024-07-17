@@ -1,6 +1,7 @@
 import { ResponsiveLine } from "@nivo/line";
 import styled from "styled-components";
 import Header from "../components/HeaderBefore";
+import { CheckHeader } from "../components/CheckHeader";
 
 const data = [
   {
@@ -41,7 +42,7 @@ const data = [
 
 const Graph = () => (
   <>
-    <Header />
+    <CheckHeader/>
     <Content>
       <CompanyType>
         <Companys>

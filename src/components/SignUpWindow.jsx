@@ -24,7 +24,7 @@ function SignUpWindow() {
     SignUp({ username: id, password: password1 })
       .then(({ data }) => {
         setCookie("access_token", data.accessToken);
-        navigate("/"); //main 설정 다시해주기!!!
+        navigate("/");
       })
       .catch((err) => console.error(err));
   };
