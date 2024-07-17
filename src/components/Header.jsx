@@ -5,10 +5,13 @@ function Header() {
   return (
     <HeaderBox>
       <LogoImg src={logo} alt="로고 이미지" />
+      <NavLogOut></NavLogOut>
       <SignUpBtn type="button" value={"로그아웃"} />
     </HeaderBox>
   );
 }
+
+const NavLogOut = styled.div``;
 
 const HeaderBox = styled.div`
   display: flex;

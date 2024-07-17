@@ -4,13 +4,34 @@ import { useState } from "react";
 import OpenEye from "../assets/OpenEye.svg";
 import CloseEye from "../assets/CloseEye.svg";
 import Password from "./Password";
+import { Login } from "../Apis/Login";
+import { setCookie } from "../Utils/cookies";
+import { useNavigate } from "react-router-dom";
 
 function LoginWindow() {
   const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChangeId = (e) => {
     setId(e.target.value);
   };
+
+  const LoginStart = () => {
+    if (id == "" || password == "") {
+      console.log("error");
+      return;
+    }
+
+    Login({ username: id, password })
+      .then(({ data }) => {
+        setCookie("access_token", data.accessToken);
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <>
       <LoginBoxAll>
@@ -33,14 +54,14 @@ function LoginWindow() {
                     required
                   />
                 </InputAll>
-                <Password />
+                <Password password={password} setPassword={setPassword} />
               </PassIdAll>
             </IdPswTextAll>
-            <LoginBtn>Log In</LoginBtn>
+            <LoginBtn onClick={LoginStart}>Log In</LoginBtn>
           </LoginContents>
           <SignUpAll>
             <SignUpText>회원이 아니신가요?</SignUpText>
-            <SignUp href="#">회원가입</SignUp>
+            <SignUp href="/SignUp">회원가입</SignUp>
           </SignUpAll>
         </LoginBox1>
       </LoginBoxAll>

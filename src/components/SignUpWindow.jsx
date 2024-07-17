@@ -1,9 +1,33 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Password from "./Password";
+import { SignUp } from "../Apis/SignUp";
+import { setCookie } from "../Utils/cookies";
+import { useNavigate } from "react-router-dom";
 
 function SignUpWindow() {
   const [id, setId] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
+  const navigate = useNavigate();
+
+  const SignUpStart = () => {
+    if (
+      password1 != password2 ||
+      id == "" ||
+      password1 == "" ||
+      password2 == ""
+    ) {
+      return;
+    }
+
+    SignUp({ username: id, password: password1 })
+      .then(({ data }) => {
+        setCookie("access_token", data.accessToken);
+        navigate("/"); //main 설정 다시해주기!!!
+      })
+      .catch((err) => console.error(err));
+  };
 
   const handleChangeId = (e) => {
     setId(e.target.value);
@@ -32,11 +56,11 @@ function SignUpWindow() {
                     required
                   />
                 </InputAll>
-                <Password />
-                <Password />
+                <Password password={password1} setPassword={setPassword1} />
+                <Password password={password2} setPassword={setPassword2} />
               </PassIdAll>
             </IdPswTextAll>
-            <LoginBtn>Sign up</LoginBtn>
+            <LoginBtn onClick={SignUpStart}>Sign up</LoginBtn>
           </LoginContents>
         </LoginBox1>
       </LoginBoxAll>
