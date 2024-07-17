@@ -9,7 +9,7 @@ function SignUpWindow() {
   const [id, setId] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
-  const router = useNavigate();
+  const navigate = useNavigate();
 
   const SignUpStart = () => {
     if (
@@ -18,14 +18,13 @@ function SignUpWindow() {
       password1 == "" ||
       password2 == ""
     ) {
-      console.log("error");
       return;
     }
 
     SignUp({ username: id, password: password1 })
       .then(({ data }) => {
         setCookie("access_token", data.accessToken);
-        router("/main"); //main 설정 다시해주기!!!
+        navigate("/"); //main 설정 다시해주기!!!
       })
       .catch((err) => console.error(err));
   };

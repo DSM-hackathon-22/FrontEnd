@@ -12,7 +12,7 @@ function LoginWindow() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
-  const router = useNavigate();
+  const navigate = useNavigate();
 
   const handleChangeId = (e) => {
     setId(e.target.value);
@@ -27,7 +27,7 @@ function LoginWindow() {
     Login({ username: id, password })
       .then(({ data }) => {
         setCookie("access_token", data.accessToken);
-        // nav
+        navigate("/");
       })
       .catch((err) => console.error(err));
   };

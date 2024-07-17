@@ -3,14 +3,8 @@ import styled from "styled-components";
 import CloseEye from "../assets/CloseEye.svg";
 import OpenEye from "../assets/OpenEye.svg";
 
-function Password() {
+function Password({ password, setPassword }) {
   const [showPswd, setShowPswd] = useState(false);
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleChangeId = (e) => {
-    setId(e.target.value);
-  };
 
   const handleChangePassword = (e) => {
     setPassword(e.target.value);

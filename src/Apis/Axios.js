@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Cookie, getCookie } from "../Utils/cookies";
+import { getCookie } from "../Utils/cookies";
 
 export const instance = axios.create({
   baseURL: "http://43.200.245.110:8080",
