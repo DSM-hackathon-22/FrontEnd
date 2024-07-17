@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import LoginWindow from "../components/LoginWindow";
 
-function SignUp() {
+function Login() {
   return (
     <>
       <LoginWindowAll>
@@ -11,6 +11,8 @@ function SignUp() {
   );
 }
 
+
+
 const LoginWindowAll = styled.div`
   display: flex;
   justify-content: center;
@@ -18,4 +20,4 @@ const LoginWindowAll = styled.div`
   height: 100vh;
 `;
 
-export default SignUp;
+export default Login;

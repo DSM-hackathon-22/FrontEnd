@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import "../fonts/font.css";
 import { useState } from "react";
-import OpenEye from "../assets/OpenEye.svg";
-import CloseEye from "../assets/CloseEye.svg";
 import Password from "./Password";
 
-function LoginWindow() {
+function SignUpWindow() {
   const [id, setId] = useState("");
 
   const handleChangeId = (e) => {
@@ -19,8 +16,10 @@ function LoginWindow() {
           <LoginContents>
             <IdPswTextAll>
               <LoginTextAll>
-                <LoginTitle>Login</LoginTitle>
-                <LoginDescription>Please log in to use</LoginDescription>
+                <LoginTitle>SignUp</LoginTitle>
+                <LoginDescription>
+                  Please use it after registering as a member
+                </LoginDescription>
               </LoginTextAll>
               <PassIdAll>
                 <InputAll>
@@ -34,35 +33,16 @@ function LoginWindow() {
                   />
                 </InputAll>
                 <Password />
+                <Password />
               </PassIdAll>
             </IdPswTextAll>
-            <LoginBtn>Log In</LoginBtn>
+            <LoginBtn>Sign up</LoginBtn>
           </LoginContents>
-          <SignUpAll>
-            <SignUpText>회원이 아니신가요?</SignUpText>
-            <SignUp href="#">회원가입</SignUp>
-          </SignUpAll>
         </LoginBox1>
       </LoginBoxAll>
     </>
   );
 }
-
-const SignUpAll = styled.div`
-  display: flex;
-  gap: 10px;
-`;
-
-const SignUp = styled.a`
-  color: #000000;
-  font-size: 12px;
-  text-decoration: none;
-`;
-
-const SignUpText = styled.div`
-  color: #9f9f9f;
-  font-size: 12px;
-`;
 
 const IdPswTextAll = styled.div`
   display: flex;
@@ -154,4 +134,4 @@ const LoginBox2 = styled.div`
   background-size: cover;
 `;
 
-export default LoginWindow;
+export default SignUpWindow;
