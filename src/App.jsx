@@ -1,10 +1,10 @@
-import SignUp from "./pages/SignUp";
+import { Router } from "./Router";
 import GlobalStyle from "./style/GlobalStyle";
 
 function App() {
   return (
     <>
-      <SignUp />
+      <Router />
       <GlobalStyle />
     </>
   );

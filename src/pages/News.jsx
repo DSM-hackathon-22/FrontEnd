@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
 import Header from "../components/HeaderBefore";
+import { CheckHeader } from "../components/CheckHeader";
 
 function News() {
   return (
     <>
-      <Header />
+      <CheckHeader />
       <AllBox>
         <Container>
           <TopLine />
